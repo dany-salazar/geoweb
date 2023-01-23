@@ -9,6 +9,7 @@
     <script src='js/edificios.js'></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    <script src='js/3d.js'></script>
     <script>
         //Añadir vuestor token y/o estilo !!
         var map;
@@ -38,6 +39,7 @@
 
             addEdificiosCapa();
             addPopupToMapEdificios("edificios");
+            add3D();
 
                 }); //fin onload
         } // final init
@@ -50,7 +52,9 @@
             <label id="altura">Más de 0 pisos</label>
           
             <input  onChange="filtrarEdificios(this.value)" id="slider" type="range" min="1" max="50" step="1" value="0" />
-    </div>
+            <hr>
+            <input type="checkbox" onchange="activarEdificios(this.checked)">Edificios
+        </div>
         </div>
         <div id="map"></div>
     </body>
