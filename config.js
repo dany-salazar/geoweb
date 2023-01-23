@@ -45,13 +45,51 @@ var config = {
             alignment: 'right',
             hidden: false,
             title: 'iliniza',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Cr%C3%A1ter_del_Vesubio.jpg',
-            description: 'Es un volcán activo del tipo vesubiano situado frente a la bahía de Nápoles y a unos nueve kilómetros de distancia de la ciudad de Nápoles. Se encuentra en la ciudad metropolitana de Nápoles, perteneciente a la región italiana de la Campania. Tiene una altura máxima de 1281 m s. n. m. y se alza al sur de la cadena principal de los Apeninos.',
+            image: 'https://img.goraymi.com/2016/05/04/c6f2ca4309d7293ac4742bd20e0ee1f8_xl.jpg',
+            description: 'Un volcán con dos cumbres, un cerro en forma de corazón y una laguna de color verde turquesa son los principales atractivos de esta reserva. De sus estribaciones nacen las vertientes para dos ríos importantes, el Toachi, que corre hacia el norte por un cañón de 40 metros de alto, y el Pilatón. Esto revela la importancia de los bosques nublados de esta reserva para la generación de agua de los poblados y ciudades cercanas',
             location: {
                 center: [-78.71579, -0.66325],
                     zoom: 16.68,
                     pitch: 45.00,
                     bearing: -40.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: true,
+            callback: '',
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+        {
+            id: 'volcan3',
+            alignment: 'right',
+            hidden: false,
+            title: 'Sangay',
+            image: 'https://www.enciclopediadelecuador.com/wp-content/uploads/2016/04/Volcan-sangay.jpg',
+            description: 'Sangay es un estratovolcán continuamente activo ubicado en la República del Ecuador. Es el volcán más activo del Ecuador, y es conocido por su expresión explosiva la cual se manifiesta por nubes gruesas de ceniza, que han formado una especie de bóveda desde 1976. ',
+            location: {
+                center: [-78.33740, -2.00178],
+                zoom: 14.69,
+                pitch: 45.00,
+                bearing: -40.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: true,
+            callback: '',
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+        {
+            id: 'volcan4',
+            alignment: 'right',
+            hidden: false,
+            title: 'EL ALTAR',
+            
+            description: '<iframe width="450" height="315" src="https://www.youtube.com/embed/tMaUaT20cxs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+            location: {
+                center: [-78.42365, -1.67358],
+                zoom: 14.20,
+                pitch: 45.00,
+                bearing: -40.00
             },
             mapAnimation: 'flyTo',
             rotateAnimation: true,
