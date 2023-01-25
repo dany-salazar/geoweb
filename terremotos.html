@@ -1,0 +1,67 @@
+<html>
+    <head>
+    <meta charset='utf-8' />
+    <title>Terremotos</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='css/estilobase.css' rel='stylesheet' />
+    <script src='js/utils.js'></script>
+    <script src='js/terremotos.js'></script>
+    <script src='js/rutas.js'></script>
+    <script>
+        var map;
+        function init() {
+
+            mapboxgl.accessToken = 'pk.eyJ1IjoiZGFueXNhbGF6YXIxOTg1IiwiYSI6ImNsY3oyM3Z0eTE3aGkzd21vY2cxZnhteW4ifQ.47rPRO3Tktn0HVtB4h_Htg';
+            map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/dark-v10',
+                center: [9.746, 40.473],
+                zoom: 5.5,
+                hash: true,
+                projection: 'globe',
+                pitch: 0,
+                attributionControl: false
+            });
+            map.addControl(new mapboxgl.AttributionControl({
+                compact: true
+            }));
+            map.addControl(new mapboxgl.NavigationControl());           
+            
+            map.on("load", function () {
+                map.setFog({}); 
+            generarPeticionTerremotos();
+            addPopupToMap("terremotos");
+            addPlacas();
+
+            }); // fin load mapa
+
+            map.on("zoomend", function () {
+
+            generarPeticionTerremotos();
+            });
+
+            map.on("moveend", function () {
+
+            generarPeticionTerremotos();
+            });
+           
+        } //fin init
+
+    </script>
+    </head>
+
+    <body onload="init()">
+        <div id='map'></div>
+    </body>
+    <div class="panelTopIzquierda">
+        <select id="selectMagnitud" onChange="generarPeticionTerremotos()">
+            <option value="3">Magnitud 3</option>
+            <option selected value="5">Magnitud 5</option>
+            <option value="6">Magnitud 6</option>
+            <option value="7">Magnitud 7</option>
+            <option value="8">Magnitud 8</option>
+        </select>
+        </div>
+    </html>

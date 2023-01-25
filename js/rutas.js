@@ -27,3 +27,26 @@ function zoomToRutas(valores) {
             zoom: coord[0]
         });
     }
+
+    function addPlacas() {
+
+        var url = 'datos/placas.geojson';
+        map.addSource('placas', { type: 'geojson', data: url});
+    
+             map.addLayer({
+        'id': 'placas',
+        'type': 'line',
+        'source': 'placas',
+        'layout': {
+        'line-join': 'round',
+        'line-cap': 'round'
+        },
+        'paint': {
+        'line-color': '#ff0000',
+        'line-width': 3,
+        'line-dasharray':[6.2,6.2]
+
+        }
+        });
+    
+    } 
