@@ -53,15 +53,19 @@
     </head>
 
     <body onload="init()">
-        <div id='map'></div>
-    </body>
-    <div class="panelTopIzquierda">
-        <select id="selectMagnitud" onChange="generarPeticionTerremotos()">
-            <option value="3">Magnitud 3</option>
-            <option selected value="5">Magnitud 5</option>
-            <option value="6">Magnitud 6</option>
-            <option value="7">Magnitud 7</option>
-            <option value="8">Magnitud 8</option>
-        </select>
+        <div class="panelTitulo">
+            TERREMOTOS
         </div>
+        <div id='map'></div>
+        <div class="panelTopIzquierda">
+            <select id="selectMagnitud" onChange="generarPeticionTerremotos()">
+                <option value="3">Magnitud 3</option>
+                <option selected value="5">Magnitud 5</option>
+                <option value="6">Magnitud 6</option>
+                <option value="7">Magnitud 7</option>
+                <option value="8">Magnitud 8</option>
+            </select>
+            </div>
+    </body>
+   
     </html>
