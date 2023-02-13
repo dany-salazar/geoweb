@@ -50,3 +50,24 @@ function zoomToRutas(valores) {
         });
     
     } 
+
+    function addLahares() {
+
+        var url = 'datos/lahares2.geojson';
+        map.addSource('lahares', { type: 'geojson', data: url});
+    
+             map.addLayer({
+        'id': 'lahares',
+        'type': 'fill',
+        'source': 'lahares',
+     
+        'paint': {
+        'fill-color': '#ff0000',
+        'fill-opacity': 0.3,
+        'fill-antialias': true,
+        'fill-outline-color':  '#ffffff '
+            
+        }
+        });
+    
+    } 
