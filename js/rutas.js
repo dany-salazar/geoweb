@@ -53,7 +53,7 @@ function zoomToRutas(valores) {
 
     function addLahares() {
 
-        var url = 'datos/lahares2.geojson';
+        var url = 'datos/lahares.geojson';
         map.addSource('lahares', { type: 'geojson', data: url});
     
              map.addLayer({

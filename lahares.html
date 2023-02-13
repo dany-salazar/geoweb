@@ -32,7 +32,8 @@
             map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/mapbox/satellite-streets-v11',
-                center: [-78.46460, -1.17891],
+                center: [-78.3842, -0.6097],
+                
                 zoom: 12,
                 projection: 'globe',
 
@@ -67,6 +68,7 @@
             map.on('draw.modechange', function (e) {
                 //solo una geometria en el mapa
                 var ff = draw.getAll();
+               
                 if (ff.features.length == 2) {
                     draw.delete(ff.features[0].id);
                     borraBuffer();
@@ -107,6 +109,7 @@
 <body onload="init()">
 
     <div class="panelTopIzquierda">
+        <p>Población afectada</p>
         <label id="pop"></label>
     </div>
     <div id="map"></div>

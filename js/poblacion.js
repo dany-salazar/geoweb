@@ -134,7 +134,7 @@ function gestionCalculoPoblacion(feature,minZoom){
 
         if(feature.geometry.type =="Polygon"){
             calculaPoblacion(feature).then(function(resultado){
-            document.getElementById('pop').innerHTML="Población:<b>"+resultado.poblacion+"</b><br>Área:<b>"+resultado.area+"</b>Km<sup>2</sup>";
+            document.getElementById('pop').innerHTML="Población:<b>"+resultado.poblacion+" habitantes </b><br>Área:<b>"+resultado.area+"</b>Km<sup>2</sup>";
             });
            }
 

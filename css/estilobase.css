@@ -12,12 +12,12 @@ body {
     position: absolute;
     top: 18px;
     left: 20px;
-    width: 200px;
+    width: 180px;
     z-index: 1000;
     background-color: rgba(255,255,255,0.9);
     padding: 10px;
     font-size: 20px;
-    color: #bf2626;
+    color: #2640bf;
     border-radius: 5px;
 }
 
