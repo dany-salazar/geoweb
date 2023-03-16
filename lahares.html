@@ -19,6 +19,7 @@
      <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.3.0/mapbox-gl-draw.css' type='text/css' />
     <script src="js/3d.js"></script>
     <script src='js/rutas.js'></script>
+    <script src='js/lahares.js'></script>
     <script>
         //Añadir vuestor token y/o estilo !!
         var map;
@@ -32,9 +33,9 @@
             map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/mapbox/satellite-streets-v11',
-                center: [-78.3842, -0.6097],
+                center: [-78.41779, -0.34147],
                 
-                zoom: 12,
+                zoom: 13.5,
                 projection: 'globe',
 
                 attributionControl: false,
@@ -81,9 +82,15 @@
                 getFeaturesFGB(url, minZoom);
                 addLahares();
                 map.setFog({});
-               
+                addPuntosSeguros() ;
+                addRutasEvacuacion();
+                addPopupToMap("puntoseguro");
+                addPopupToMap("rutaEvacuacion");
+            
 
             });
+          
+                
 
             map.on("moveend", function () {
                 getFeaturesFGB(url, minZoom);
@@ -108,11 +115,27 @@
 
 <body onload="init()">
 
+    <div class="scrollmenu">
+       <h2>POBLACIÓN AFECTADA DEL CANTÓN RUMIÑAHUI POR LOS LAHARES DEL VOLCÁN COTOPAXI</h2>
+        
+      </div>
+
     <div class="panelTopIzquierda">
         <p>Población afectada</p>
         <label id="pop"></label>
     </div>
     <div id="map"></div>
+    <div class="promo">
+        <div class="current-promo">
+           
+           <h2>Leyenda</h2>
+            <p ><img src="/images/marker.png"></img>   Puntos seguros </p>
+            <p ><img src="/images/rojo1.png">   Lahares </p>
+            <p ><img src="/images/azul.png">Rutas de Evacuación </p>
+          
+           
+          </div>
+      </div>
 </body>
 
 </html>
