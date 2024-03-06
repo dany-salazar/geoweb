@@ -21,7 +21,7 @@ function addEdificiosCapa() {
             "interpolate", ["linear"], ["number", ["get", "pup_altura"]],
             0, "#FFFFFF",
             1, "#e6b03d",
-            2, "#e63d58",
+            2, "#ee6c7d",
             3, "#3de66d",
             4, "#22ecf0",
             5, "#849eef",
