@@ -19,7 +19,7 @@
              map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/mapbox/dark-v10',
-                center: [2.16859, 41.3954],
+                center: [-78.168889,-2.45909],
                 zoom: 15,
                 attributionControl: false,
                 pitch: 45,
@@ -39,7 +39,7 @@
 
             addEdificiosCapa();
             addPopupToMapEdificios("edificios");
-            add3D("mapbox-dem");
+           // add3D("mapbox-dem");
 
                 }); //fin onload
         } // final init
@@ -51,7 +51,7 @@
 
             <label id="altura">Más de 0 pisos</label>
           
-            <input  onChange="filtrarEdificios(this.value)" id="slider" type="range" min="1" max="50" step="1" value="0" />
+            <input  onChange="filtrarEdificios(this.value)" id="slider" type="range" min="0" max="10" step="1" value="0" />
             <hr>
             <input type="checkbox" onchange="activarEdificios(this.checked)">Edificios
         </div>

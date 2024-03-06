@@ -1,9 +1,10 @@
 function addEdificiosCapa() {
 
     map.addSource("edificios_source", {
+        
         "type": "vector",
-        "url": "mapbox://danysalazar1985.08leo3j9"  // mapbox://Nuestor ID Tileset
-
+        "url": "mapbox://danysalazar1985.1da4bwyv"  // mapbox://Nuestor ID Tileset
+        
     }); //fin map source
 
 
@@ -11,13 +12,13 @@ function addEdificiosCapa() {
     "id": "edificios",
     "type": "fill-extrusion",
     "source": "edificios_source",
-    "source-layer": "construcciones-2j121w", // Nuestro nombre Tileset
+    "source-layer": "construccionesshape-0xis9e", // Nuestro nombre Tileset
     "maxzoom": 21,
     "minzoom": 15,
-   "filter": [">", "numberOfFl", 0],
+   "filter": [">", "pup_altura", 0],
     "paint": {
         "fill-extrusion-color": [
-            "interpolate", ["linear"], ["number", ["get", "numberOfFl"]],
+            "interpolate", ["linear"], ["number", ["get", "pup_altura"]],
             0, "#FFFFFF",
             1, "#e6b03d",
             3, "#e6b03d",
@@ -31,7 +32,7 @@ function addEdificiosCapa() {
             100, "transparent"
 
         ],
-        "fill-extrusion-height": ["*", 2, ["to-number", ["get", "numberOfFl"]]],
+        "fill-extrusion-height": ["*", 2, ["to-number", ["get", "pup_altura"]]],
         "fill-extrusion-opacity": 0.9
     }
 }
@@ -40,7 +41,7 @@ function addEdificiosCapa() {
 
 } //fin funcion
 function filtrarEdificios(valor) {
-    map.setFilter("edificios", [">", "numberOfFl", parseInt(valor)]);
+    map.setFilter("edificios", [">", "pup_altura", parseInt(valor)]);
 
     document.getElementById("altura").innerHTML = "Más de  <b>" + valor + "</b> pisos";
 
@@ -53,7 +54,7 @@ function addPopupToMapEdificios(nombreCapa) {
         //console.info(e);
         for (key in e.features[0].properties) {
 
-            if (key == "numberOfFl") {
+            if (key == "pup_altura") {
                 text += "<b>Numero de plantas</b>:" + e.features[0].properties[key] + "<br>";
             }
             if (key == "localId") {
