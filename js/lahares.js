@@ -116,3 +116,26 @@ map.addImage('marker', image);
         });
     
     } 
+    function addAbastoTucan() {
+        map.loadImage('marker.png', (error, image) => {
+    if (error) throw error;
+    // Add the loaded image to the style's sprite with the ID 'marker'.
+    map.addImage('marker', image);
+    });
+        var url = 'datos/abastoTucan.geojson';
+        map.addSource('puntoseguro', { type: 'geojson', data: url});
+    
+             map.addLayer({
+        'id': 'puntoseguro',
+        'type': 'symbol',
+        'source': 'puntoseguro',
+     
+        'layout': {
+            'icon-image': 'marker',
+            'icon-size': 0.04
+            
+            }
+    
+    
+        });}
+    
