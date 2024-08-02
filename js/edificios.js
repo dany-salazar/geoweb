@@ -46,6 +46,8 @@ function filtrarEdificios(valor) {
     document.getElementById("altura").innerHTML = "Más de  <b>" + valor + "</b> pisos";
 
 }
+
+
 function addPopupToMapEdificios(nombreCapa) {
 
     map.on('click', nombreCapa, function (e) {

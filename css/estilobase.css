@@ -62,3 +62,18 @@ div.scrollmenu {
   .product-item-img-promo{width: 210px;border-radius: 20px; margin: 0px; padding-left: 10px;}
   .current-promo h2{text-align: center;}
   .current-promo img{width: 20px;height: 18px;padding-right: 10px;}
+
+  .controls {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.controls label {
+    margin-left: 5px;
+}

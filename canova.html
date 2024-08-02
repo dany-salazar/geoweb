@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Extrude polygons for 3D indoor mapping</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZGFueXNhbGF6YXIxOTg1IiwiYSI6ImNsY3oyM3Z0eTE3aGkzd21vY2cxZnhteW4ifQ.47rPRO3Tktn0HVtB4h_Htg';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [-87.61694, 41.86625],
+        zoom: 15.99,
+        pitch: 40,
+        bearing: 20,
+        antialias: true
+    });
+    
+    map.on('load', () => {
+        var url = 'datos/EdificioCanova.geojson';
+        map.addSource('floorplan', { type: 'geojson', data: url});
+     
+        map.addLayer({
+            'id': 'room-extrusion',
+            'type': 'fill-extrusion',
+            'source': 'floorplan',
+          
+        });
+    });
+</script>
+
+</body>
+</html>
