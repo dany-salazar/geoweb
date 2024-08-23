@@ -115,7 +115,8 @@ map.addImage('marker', image);
         }
         });
     
-    } 
+    }
+     
     function addAbastoTucan() {
         map.loadImage('marker.png', (error, image) => {
     if (error) throw error;
@@ -138,4 +139,24 @@ map.addImage('marker', image);
     
     
         });}
+
+        function addAbastoTepec() {
+            var url = 'datos/tepec.geojson';
+        map.addSource('tepec', { type: 'geojson', data: url});
+           
+            map.addLayer({
+                'id': 'tepec',
+                'type': 'line',
+                'source': 'tepec',
+                'layout': {
+                'line-join': 'round',
+                'line-cap': 'round'
+                },
+                'paint': {
+                'line-color': '#FFFF00',
+                'line-width': 4,
+            
+        
+                }
+                });}
     
