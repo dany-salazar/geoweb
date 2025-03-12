@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Farmacias 👌🏾 🚵🏽‍♀️ </title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+
+    <link href='css/estilobase.css' rel='stylesheet' />
+     <script src='js/utils.js'></script>
+     <script src='js/farmacias.js'></script>
+     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+
+     <link href='css/estilobase.css' rel='stylesheet' />
+    <script>
+        //Añadir vuestor token y/o estilo !!
+        var map;
+        var farmaciasGeoJSON;
+        function init() {
+            mapboxgl.accessToken =
+            'pk.eyJ1IjoiZGFueXNhbGF6YXIxOTg1IiwiYSI6ImNsY3oyM3Z0eTE3aGkzd21vY2cxZnhteW4ifQ.47rPRO3Tktn0HVtB4h_Htg';
+            map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/satellite-streets-v11',
+                center: [-78.40751, -1.17555],
+                zoom: 7.78,
+                attributionControl: false,
+                hash: true,
+                pitch: 7.50,
+                bearing: -8.80            
+
+            });
+
+            map.addControl(new mapboxgl.AttributionControl({
+                compact: true
+            }));
+            map.addControl(new mapboxgl.NavigationControl());
+
+            map.addControl(
+                new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                mapboxgl: mapboxgl,
+                localGeocoder:buscarFarmacias,
+                collapsed:true
+                }));
+
+            map.on("load", function () {
+
+                // reutilizamos funcion de utils para obtener geojson
+                enviarPeticion("datos/establecimientos.geojson").then(function (datos) {
+                    farmaciasGeoJSON = datos;
+                    console.info(map.style);
+                    addFarmacias();
+                    addPopupToMap("farmacias");
+                    addFarmaciasCercanas();
+                    console.info(map.style);
+                }); //fin peticio
+
+
+}); //fin load
+        } // final init
+    </script>
+</head>
+
+<body onload="init()">
+    <div id="map"></div>
+</body>
+
+</html>
