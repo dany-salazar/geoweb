@@ -12,7 +12,12 @@ function addFarmacias() {
         'type': 'circle',
         'source': 'farmacias',
         'paint': {
-            'circle-color': '#00ff00',
+            'circle-color': [
+                'case',
+                ['==', ['coalesce', ['get', 'coordinador'], ''], ''], // Si "coordinador" es vacío
+                '#ff0000', // Rojo
+                '#00ff00'  // Verde (color por defecto)
+            ],
             'circle-radius': 5,
             'circle-stroke-color': '#ffffff',
             'circle-stroke-width': 2
@@ -108,4 +113,6 @@ function addFarmaciasCercanas() {
 
 
 
+
+    
 } // fin funcion

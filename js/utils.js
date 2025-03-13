@@ -26,11 +26,50 @@ function addPopupToMap(nombreCapa) {
     map.on('mousemove', nombreCapa, function (e) {
 
       var text = "";
-      //console.info(e);
-      for (key in e.features[0].properties) {
+      text += "<b>Parroquia</b>:" + e.features[0].properties["NOMBRE PARROQUIA"] + "<br>";
+      text += "<b>Recinto</b>:" + e.features[0].properties["NOMBRE RECINTO"] + "<br>";
+      text += "<b>Coordinador</b>:" + e.features[0].properties["coordinador"] + "<br>";
+      text += "<b>Nro de Juntas</b>:" + e.features[0].properties["NUM_JUNR"] + "<br>";
 
-        text += "<b>" + key + "</b>:" + e.features[0].properties[key] + "<br>";
+      //console.info(e);
+     for (key in e.features[0].properties) {
+   text += "<b>" + key + "</b>:" + e.features[0].properties[key] + "<br>";
       }
+
+      popup.setLngLat(e.lngLat)
+        .setHTML(text)
+        .addTo(map);
+
+    });
+
+    map.on('mouseenter', nombreCapa, function () {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', nombreCapa, function () {
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
+  }// fin funcion
+
+
+  function addPopupRecinto(nombreCapa) {
+
+    map.on('mousemove', nombreCapa, function (e) {
+
+      var props = e.features[0].properties;
+      var coordinador = props["coordinador"];
+      if (!coordinador || coordinador.trim() === "") {
+        coordinador = "SIN ASIGNAR"; // Si es vacío o undefined, poner "0"
+      }
+    
+      var text = `
+      <b>Parroquia:</b> ${props["NOMBRE PARROQUIA"] || "N/A"}<br>
+      <b>Recinto:</b> ${props["NOMBRE RECINTO"] || "N/A"}<br>
+      <b>Coordinador:</b> ${coordinador}<br>
+      <b>Nro de Juntas:</b> ${props["NUM_JUNR"] || "N/A"}<br>
+    `;
+
 
       popup.setLngLat(e.lngLat)
         .setHTML(text)

@@ -2,7 +2,7 @@
 
 <head>
     <meta charset='utf-8' />
-    <title>Farmacias 👌🏾 🚵🏽‍♀️ </title>
+    <title>Recintos electorales </title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
@@ -51,11 +51,11 @@
             map.on("load", function () {
 
                 // reutilizamos funcion de utils para obtener geojson
-                enviarPeticion("datos/establecimientos.geojson").then(function (datos) {
+                    enviarPeticion("datos/pichincha.geojson").then(function (datos) {
                     farmaciasGeoJSON = datos;
                     console.info(map.style);
                     addFarmacias();
-                    addPopupToMap("farmacias");
+                    addPopupRecinto("farmacias");
                     addFarmaciasCercanas();
                     console.info(map.style);
                 }); //fin peticio
