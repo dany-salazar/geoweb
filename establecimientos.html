@@ -51,16 +51,17 @@
             map.on("load", function () {
 
                 // reutilizamos funcion de utils para obtener geojson
-                    enviarPeticion("datos/pichincha.geojson").then(function (datos) {
+                    enviarPeticion("datos/pichincha.geojson").then(function (datos) 
+                    {
                     farmaciasGeoJSON = datos;
                     console.info(map.style);
                     addFarmacias();
                     addPopupRecinto("farmacias");
                     addFarmaciasCercanas();
                     console.info(map.style);
-                }); //fin peticio
+                }); //fin peticion
 
-
+               
 }); //fin load
         } // final init
     </script>

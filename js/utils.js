@@ -25,11 +25,7 @@ function addPopupToMap(nombreCapa) {
 
     map.on('mousemove', nombreCapa, function (e) {
 
-      var text = "";
-      text += "<b>Parroquia</b>:" + e.features[0].properties["NOMBRE PARROQUIA"] + "<br>";
-      text += "<b>Recinto</b>:" + e.features[0].properties["NOMBRE RECINTO"] + "<br>";
-      text += "<b>Coordinador</b>:" + e.features[0].properties["coordinador"] + "<br>";
-      text += "<b>Nro de Juntas</b>:" + e.features[0].properties["NUM_JUNR"] + "<br>";
+   
 
       //console.info(e);
      for (key in e.features[0].properties) {
