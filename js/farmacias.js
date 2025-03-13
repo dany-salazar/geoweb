@@ -115,4 +115,37 @@ function addFarmaciasCercanas() {
 
 
     
-} // fin funcion
+}
+
+function addProvincias() {
+
+    var url = 'datos/prov.geojson';
+    map.addSource('provincias', { type: 'geojson', data: url});
+
+         map.addLayer({
+    'id': 'provincias',
+    'type': 'fill',
+    'source': 'provincias',
+ 
+    'paint': {
+    'fill-color': '#ff0000',
+    'fill-opacity': 0.1,
+   
+    'fill-outline-color': '#000000' // Borde negro
+    
+    }
+    });
+    map.addLayer({
+        'id': 'provincias-border',
+        'type': 'line',
+        'source': 'provincias',
+        'paint': {
+            'line-color': '#000000', // Color negro
+            'line-width': 2, // Ancho de la línea
+            'line-opacity': 1
+        }
+    });
+
+} 
+
+// fin funcion
