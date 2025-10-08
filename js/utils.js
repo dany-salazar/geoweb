@@ -83,3 +83,38 @@ function addPopupToMap(nombreCapa) {
     });
   }// fin funcion
 
+  function addPopupBeneficiario(nombreCapa) {
+
+    map.on('mousemove', nombreCapa, function (e) {
+
+      var props = e.features[0].properties;
+     
+      var text = `
+      <b>id:</b> ${props["id"] || "N/A"}<br>
+      <b>Proyecto:</b> ${props["beneficiar"] || "N/A"}<br>
+      <b>Parroquia:</b> ${props["benefici_4"] || "N/A"}<br>
+        <b>Fecha de ingreso:</b> ${props["benefici_1"] || "N/A"}<br>
+         <b>Embarazada:</b> ${props["benefici_7"] || "N/A"}<br>
+           <b>Semanas de gestion:</b> ${props["benefici_8"] || "N/A"}<br>
+           <b>Bono Bies:</b> ${props["benefici_9"] || "N/A"}<br>
+           <b>Nivel de Educacion:</b> ${props["benefici11"] || "N/A"}<br>
+
+
+    `;
+
+
+      popup.setLngLat(e.lngLat)
+        .setHTML(text)
+        .addTo(map);
+
+    });
+
+    map.on('mouseenter', nombreCapa, function () {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', nombreCapa, function () {
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+    });
+  }// fin funcion
