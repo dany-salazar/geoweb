@@ -89,25 +89,38 @@ function addPopupToMap(nombreCapa) {
 
       var props = e.features[0].properties;
      
-      var text = `
-      <b>id:</b> ${props["id"] || "N/A"}<br>
-      <b>Proyecto:</b> ${props["b_Field2"] || "N/A"}<br>
-      <b>Parroquia:</b> ${props["b_Field6"] || "N/A"}<br>
-      <b>Dirección:</b> ${props["b_Field7"] || "N/A"}<br>
-       <b>Área:</b> ${props["b_Field8"] || "N/A"}<br>
-        <b>Fecha de ingreso:</b> ${props["b_Field3"] || "N/A"}<br>
-         <b>Embarazada:</b> ${props["b_Field9"] || "N/A"}<br>
-           <b>Edad gestacional:</b> ${props["b_Field10"] || "N/A"}<br>
-           <b>Bono Bies:</b> ${props["b_Field11"] || "N/A"}<br>
-           <b>Edad cumplido:</b> ${props["b_Field12"] || "N/A"}<br>
-           <b>Nivel de Educacion:</b> ${props["b_Field13"] || "N/A"}<br>
-           <b>% de Discapacidad:</b> ${props["b_Field16"] || "N/A"}<br>
-           <b>Hijos menores a 17 años 11 meses:</b> ${props["b_Field18"] || "N/A"}<br>
-            <b>Hijos menores a 2 años:</b> ${props["b_Field19"] || "N/A"}<br>
- <b>Material de la vivienda:</b> ${props["b_Field28"] || "N/A"}<br>
+var text = `
 
-    `;
+  <div><b>id:</b> ${props["id"] || "N/A"}</div>
+  <div><b>Proyecto:</b> ${props["b_Field2"] || "N/A"}</div>
 
+  <div><b>Parroquia:</b> ${props["b_Field6"] || "N/A"}</div>
+  <div><b>Dirección:</b> ${props["b_Field7"] || "N/A"}</div>
+
+  <div><b>Área:</b> ${props["b_Field8"] || "N/A"}</div>
+  <div><b>Fecha de ingreso:</b> ${props["b_Field3"] || "N/A"}</div>
+
+  <div><b>Embarazada:</b> ${props["b_Field9"] || "N/A"}</div>
+  <div><b>Edad gestacional:</b> ${props["b_Field10"] || "N/A"}</div>
+
+  <div><b>Bono Bies:</b> ${props["b_Field11"] || "N/A"}</div>
+  <div><b>Edad cumplido:</b> ${props["b_Field12"] || "N/A"}</div>
+
+  <div><b>Nivel de Educación:</b> ${props["b_Field13"] || "N/A"}</div>
+  <div><b>% de Discapacidad:</b> ${props["b_Field16"] || "N/A"}</div>
+
+  <div><b>Hijos menores 17 años:</b> ${props["b_Field18"] || "N/A"}</div>
+  <div><b>Hijos menores 2 años:</b> ${props["b_Field19"] || "N/A"}</div>
+
+  <div><b>Material de vivienda:</b> ${props["b_Field28"] || "N/A"}</div>
+  <div><b>Nombre Jefe Hogar:</b> ${props["b_Field37"] || "N/A"}</div>
+
+  <div><b>Nro Integrantes:</b> ${props["b_Field33"] || "N/A"}</div>
+  <div><b>Niños con DCI:</b> ${props["b_Field36"] || "N/A"}</div>
+
+  <div><b>Adultos Mayores:</b> ${props["b_Field35"] || "N/A"}</div>
+</div>
+`;
 
       popup.setLngLat(e.lngLat)
         .setHTML(text)
