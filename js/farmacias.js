@@ -281,7 +281,7 @@ function addgrafico() {
     // Contar beneficiarios por parroquia
     const conteo = {};
     farmaciasGeoJSON.features.forEach(f => {
-        const parroquia = f.properties.benefici_4 || "Sin parroquia";
+        const parroquia = f.properties.b_Field6 || "Sin parroquia";
         conteo[parroquia] = (conteo[parroquia] || 0) + 1;
     });
 
