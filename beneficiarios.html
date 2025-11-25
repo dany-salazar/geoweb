@@ -79,7 +79,7 @@
                 addGuaranda();
                 addCentros();
 
-                enviarPeticion("datos/beneficiarios.geojson").then(function (datos) {
+                enviarPeticion("datos/beneficiarios2.geojson").then(function (datos) {
                     farmaciasGeoJSON = datos;
                     addBeneficiarios();
                     addPopupBeneficiario("farmacias");
